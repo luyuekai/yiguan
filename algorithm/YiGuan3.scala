@@ -60,7 +60,7 @@ object YiGuan3 {
         }
         (longestPath, 1)
       })
-      .count()
+      .count()  //在正式跑算法前，提前触发spark的action算子，将数据先加载至内存中，减少数据加载耗时。（平均会提升1.5秒到2.5秒）
 
     val end = System.nanoTime()
     println(((end - start) / 1000 / 1000).toString + "ms")
